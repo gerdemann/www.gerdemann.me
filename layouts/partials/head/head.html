@@ -1,0 +1,71 @@
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
+
+    {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" data-cookieconsent="ignore">
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="21703286-a9dd-4125-b61e-060830ff74fb" data-blockingmode="auto" type="text/javascript"></script>
+
+    <meta property="og:site_name" content="{{.Site.Params.siteName}}" />
+    <meta property="og:title" content="{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}"/>
+    <meta itemprop="name" content="{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}" />
+    <meta name="twitter:title" content="{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}" />
+    <meta name="application-name" content="{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}" />
+
+    {{- with $.Params.images -}}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
+    {{ else -}}
+    {{- $images := $.Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+    {{- with $featured -}}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="{{ $featured.Permalink }}"/>
+    {{- else -}}
+    {{- with $.Site.Params.images -}}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
+    {{ else -}}
+    <meta name="twitter:card" content="summary"/>
+    {{- end -}}
+    {{- end -}}
+    {{- end }}
+
+    <meta name="description" content="{{ if .Summary }}{{.Summary}}{{ else }}{{.Site.Params.siteDesc}}{{end}}" />
+    <meta name="twitter:description" content="{{ if .Summary }}{{.Summary}} {{ else }}{{.Site.Params.siteDesc}}{{end}}"/>
+    <meta itemprop="description" content="{{ if .Summary }} {{.Summary}} {{ else }}{{.Site.Params.siteDesc}}{{end}}"/>
+    <meta property="og:description" content="{{ if .Summary }} {{.Summary}} {{ else }}{{.Site.Params.siteDesc}}{{ end }}" />
+
+    {{ partial "post-meta.html" . }}
+
+    <meta name="theme-color" content="#000000">
+    <link href="{{ "favicon.ico" | relURL }}" rel="shortcut icon" type="image/x-icon" />
+    <link href="{{ "apple-touch-icon.png" | relURL }}" rel="apple-touch-icon" sizes="180x180" />
+    <link href="{{ "favicon-32x32.png" | relURL }}" rel="icon" sizes="32x32" type="image/png" />
+    <link href="{{ "manifest.json" | relURL }}" rel="manifest" />
+    <link href="{{ "favicon-16x16.png" | relURL }}" rel="icon" sizes="16x16" type="image/png" />
+    <link href="{{ "safari-pinned-tab.svg" | relURL }}" rel="mask-icon" color="#000000" />
+    
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://tracking.gerdemann.me/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
+</head>

@@ -1,0 +1,60 @@
+baseURL = 'https://www.gerdemann.me/'
+languageCode = 'en-db'
+title = 'Michael Gerdemann'
+theme = "hugo-tania"
+uglyurls = true
+timeZone = 'Europe/Berlin'
+
+enableRobotsTXT = true
+disableKinds = ['categories']
+
+[params]
+  mainSections = ['posts']
+  author = "Michael Gerdemann"
+  siteName = "Michael Gerdemann"
+  siteDesc = "The blog of Michael Gerdemann - Flow & Neos enthusiast. Many things about programming and other technical topics."
+
+[params.colorScheme]
+  default = "light"
+
+
+[menu]
+[[menu.header]]
+  name = "Blog"
+  url = "/blog.html"
+  weight = 100
+[[menu.header]]
+  name = "About"
+  url = "/about.html"
+  weight = 200
+[[menu.header]]
+  name = "Legal / Privacy notice"
+  url = "/legal.html"
+  weight = 300
+
+[[menu.footer]]
+  name = "RSS"
+  url = "/feed.xml"
+  weight = 100
+[[menu.footer]]
+  name = "@nottulner"
+  url = "https://dizl.de/@nottulner"
+  weight = 200
+
+
+[outputFormats]
+[outputFormats.RSS]
+  mediatype = "application/rss"
+  baseName = "feed"
+
+[outputs]
+  page = ["HTML"]
+  posts = ["HTML"]
+  section = ["HTML"]
+  taxonomyTerm = ["HTML"]
+  taxonomy = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
