@@ -40,7 +40,8 @@ disableKinds = ['categories']
   name = "@michael@wohnzimmer.social"
   url = "https://wohnzimmer.social/@michael"
   weight = 200
-
+  [menu.footer.params]
+    rel = "me"
 
 [outputFormats]
 [outputFormats.RSS]
