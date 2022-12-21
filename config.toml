@@ -38,7 +38,7 @@ disableKinds = ['categories']
   weight = 100
 [[menu.footer]]
   name = "@michael@wohnzimmer.social"
-  url = 'https://wohnzimmer.social/@michael" rel = "me'
+  url = "https://wohnzimmer.social/@michael"
   weight = 200
     
 
