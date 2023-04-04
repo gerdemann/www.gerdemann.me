@@ -6,11 +6,18 @@ services:
     tty: true
     labels:
       io.rancher.container.pull_image: always
-      traefik.http.routers.http-www-gerdemann-me.middlewares: redirect-https
-      traefik.http.routers.http-www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.gerdemann.dev`,`gerdemann.dev`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
+      io.rancher.scheduler.affinity:host_label: host=contabo
+      traefik.http.middlewares.secure-headers.headers.forcestsheader: 'true'
+      traefik.http.routers.http-www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
       traefik.http.routers.www-gerdemann-me.entrypoints: websecure
-      traefik.http.routers.http-www-gerdemann-me.entrypoints: web
-      traefik.http.services.nginx_www-gerdeman-me.loadbalancer.server.port: '80'
+      traefik.http.middlewares.secure-headers.headers.customresponseheaders.server: gerdemann
       traefik.http.routers.www-gerdemann-me.tls: 'true'
       traefik.http.routers.www-gerdemann-me.tls.certresolver: le
-      traefik.http.routers.www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.gerdemann.dev`,`gerdemann.dev`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
+      traefik.http.middlewares.secure-headers.headers.contenttypenosniff: 'true'
+      traefik.http.routers.http-www-gerdemann-me.middlewares: redirect-https
+      traefik.http.routers.www-gerdemann-me.middlewares: secure-headers
+      traefik.http.middlewares.secure-headers.headers.stsseconds: '86400'
+      traefik.http.routers.http-www-gerdemann-me.entrypoints: web
+      traefik.http.services.nginx_www-gerdeman-me.loadbalancer.server.port: '80'
+      traefik.http.middlewares.secure-headers.headers.browserxssfilter: 'true'
+      traefik.http.routers.www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
