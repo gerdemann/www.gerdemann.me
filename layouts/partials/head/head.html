@@ -7,9 +7,7 @@
     <title>{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
 
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" data-cookieconsent="ignore">
-
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="21703286-a9dd-4125-b61e-060830ff74fb" data-blockingmode="auto" type="text/javascript"></script>
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
     <meta property="og:site_name" content="{{.Site.Params.siteName}}" />
     <meta property="og:title" content="{{ if .IsHome }}Home | {{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ end }}{{ end }}{{ .Site.Title }}"/>
