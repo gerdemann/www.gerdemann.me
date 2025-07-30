@@ -24,4 +24,4 @@ höherem Energiebedarf. Die Relevanz und Qualität der Antworten sprechen für s
 an der Zeit, über nachhaltige KI-Infrastruktur und intelligente Nutzung nachzudenken, damit
 der technologische Fortschritt auch ökologisch vertretbar bleibt.
 
-[Ein Computer auf einem Schreibtisch](computer.png)
+![Ein Computer auf einem Schreibtisch](computer.png)
