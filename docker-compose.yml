@@ -1,20 +1,17 @@
-version: '2'
 services:
   nginx:
     image: ghcr.io/gerdemann/www.gerdemann.me:main
-    stdin_open: true
-    tty: true
+    restart: always
     labels:
-      io.rancher.container.pull_image: always
-      io.rancher.scheduler.affinity:host_label: host=hetzner
+      traefik.enable: 'true'
       traefik.http.middlewares.secure-headers.headers.forcestsheader: 'true'
-      traefik.http.routers.http-www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
+      traefik.http.routers.http-www-gerdemann-me.rule: 'Host(`www.gerdemann.me`) || Host(`gerdemann.me`) || Host(`www.w-s-n.de`) || Host(`w-s-n.de`) || Host(`www.azubi.dev`) || Host(`azubi.dev`) || Host(`eins.dev`) || Host(`www.eins.dev`) || Host(`alleskese.de`) || Host(`www.alleskese.de`)'
       traefik.http.routers.www-gerdemann-me.entrypoints: websecure
       traefik.http.middlewares.secure-headers.headers.customresponseheaders.server: gerdemann
       traefik.http.routers.www-gerdemann-me.tls: 'true'
       traefik.http.routers.www-gerdemann-me.tls.certresolver: le
       traefik.http.middlewares.secure-headers.headers.contenttypenosniff: 'true'
-      traefik.http.routers.http-www-gerdemann-me.middlewares: redirect-https
+      traefik.http.routers.http-www-gerdemann-me.middlewares: redirect-https@file
       traefik.http.routers.www-gerdemann-me.middlewares: secure-headers
       traefik.http.middlewares.secure-headers.headers.stsseconds: '31536000'
       traefik.http.middlewares.secure-headers.headers.stsincludesubdomains: 'false'
@@ -24,4 +21,11 @@ services:
       traefik.http.middlewares.secure-headers.headers.customresponseheaders.X-XSS-Protection: '0'
       traefik.http.routers.http-www-gerdemann-me.entrypoints: web
       traefik.http.services.nginx_www-gerdeman-me.loadbalancer.server.port: '80'
-      traefik.http.routers.www-gerdemann-me.rule: Host(`www.gerdemann.me`,`gerdemann.me`,`www.w-s-n.de`,`w-s-n.de`,`www.azubi.dev`,`azubi.dev`, `eins.dev`, `www.eins.dev`)
+      traefik.http.routers.www-gerdemann-me.rule: 'Host(`www.gerdemann.me`) || Host(`gerdemann.me`) || Host(`www.w-s-n.de`) || Host(`w-s-n.de`) || Host(`www.azubi.dev`) || Host(`azubi.dev`) || Host(`eins.dev`) || Host(`www.eins.dev`) || Host(`alleskese.de`) || Host(`www.alleskese.de`)'
+      traefik.docker.network: traefik
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true

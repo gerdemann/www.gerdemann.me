@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build production image
 
 on:
   push:
@@ -52,13 +52,3 @@ jobs:
           provenance: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - name: Deploy to rancher
-        uses: gerdemann/rancher-compose-action@d865da55c7ab4f35d51e0347dfcad89a98a65b5c # v1
-        with:
-          RANCHER_URL: ${{ secrets.RANCHER_URL }}
-          RANCHER_ACCESS_KEY: ${{ secrets.RANCHER_ACCESS_KEY }}
-          RANCHER_SECRET_KEY: ${{ secrets.RANCHER_SECRET_KEY }}
-          RANCHER_COMPOSE_FILE: "rancher-compose.yml"
-          DOCKER_COMPOSE_FILE: "docker-compose.yml"
-          STACK_NAME: "www-gerdemann-me"

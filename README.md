@@ -1,4 +1,4 @@
-# Michael Gerdemann – lokale Portfolio-Vorschau
+# Michael Gerdemann – Portfolio
 
 Die neue Oberfläche läuft mit Hugo und Markdown. Sie umfasst eine Portfolio-Startseite,
 ein deutsches Profil, das Blogarchiv und die bestehenden Artikel in ihrer Originalsprache.
@@ -102,9 +102,27 @@ Nginx 1.30.5 aus. Die 45 historischen Weiterleitungen werden aus
 Referrer und Browserberechtigungen; HSTS wird am Traefik-TLS-Endpunkt gesetzt.
 
 Matomo ist vollständig entfernt. Giscus wird in der Produktionsfassung erst nach einem
-Klick auf „Kommentare laden“ eingebunden. Die Deployment-Actions sind auf geprüfte
-Release-Commits festgeschrieben, und das Rancher-Hostlabel lautet `hetzner`.
+Klick auf „Kommentare laden“ eingebunden. GitHub Actions baut bei einem Push auf `main`
+das Image `ghcr.io/gerdemann/www.gerdemann.me:main`. Die Website läuft auf Hetzner als
+Docker-Compose-Dienst `nginx` unter `/docker/www.gerdemann.me`; der Server ist über SSH
+im privaten Netz erreichbar. Die frühere Rancher-API ist nicht mehr der Deploy-Weg.
 
-Bei Änderungen am Host muss das Hostlabel mit der tatsächlichen Rancher-Konfiguration
-übereinstimmen. Nach jedem Deployment sind Weiterleitungen, Sicherheitsheader und die
-Kommentar-Einwilligung gegen die öffentliche Adresse zu prüfen.
+Für ein Deployment wird zuerst der erfolgreiche Image-Build abgewartet. Anschließend
+wird die Compose-Datei auf dem Server validiert und der Dienst mit dem neuen Image
+aktualisiert. `SITE_DEPLOY_HOST` und `SITE_DEPLOY_KEY` werden lokal gesetzt; Schlüssel
+gehören nicht ins Repository oder in GitHub Actions-Logs.
+
+```sh
+scp -o IdentitiesOnly=yes -i "$SITE_DEPLOY_KEY" docker-compose.yml \
+  "root@$SITE_DEPLOY_HOST:/docker/www.gerdemann.me/docker-compose.yml.next"
+ssh -o IdentitiesOnly=yes -i "$SITE_DEPLOY_KEY" "root@$SITE_DEPLOY_HOST" \
+  'cd /docker/www.gerdemann.me && \
+   docker compose -f docker-compose.yml.next config --quiet && \
+   docker pull ghcr.io/gerdemann/www.gerdemann.me:main && \
+   cp -p docker-compose.yml docker-compose.yml.backup && \
+   mv docker-compose.yml.next docker-compose.yml && \
+   docker compose up -d --no-deps --pull never nginx'
+```
+
+Nach jedem Deployment sind Startseite, Profil, Blog, Weiterleitungen,
+Sicherheitsheader und Kommentar-Einwilligung gegen die öffentliche Adresse zu prüfen.
