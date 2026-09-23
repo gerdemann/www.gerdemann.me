@@ -1,3 +1,7 @@
+.git
+.github
+.preview.pid
+.preview.port
 .vscode
-public
 node_modules
+public

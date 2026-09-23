@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="de" data-theme="light">
+{{ partial "head/head.html" . }}
+<body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+{{ partial "header.html" . }}
+<main id="inhalt" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+{{ partial "footer.html" . }}
+</body>
+</html>

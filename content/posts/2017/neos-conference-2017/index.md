@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'Neos Conference 2017'
 date: '2017-04-02'
 tags: ['neos', 'flow']

@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: How ChatGPT helps me every day at work
 date: '2023-04-04'
 tags: ['chatgpt', 'ai', 'programming']

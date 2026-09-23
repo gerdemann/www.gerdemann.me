@@ -1,60 +1,8 @@
-{{/* Original code from: https://laurakalbag.com/processing-responsive-images-with-hugo/   */}}
-{{/* Just modified a bit to work with render_image hook and output webp images   */}}
-{{/* get file that matches the filename as specified as src=""  */}}
-{{ $src := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL))  }}
-{{ $alt := .PlainText | safeHTML }}
-
-{{/* So for posts that aren't setup in the page bundles, it doesn't fail  */}}
+{{ $src := .Page.Resources.GetMatch .Destination }}
 {{ if $src }}
-
-
-{{ $tinyw := default "500x webp" }}
-{{ $smallw := default "800x webp" }}
-{{ $mediumw := default "1200x webp" }}
-{{ $largew := default "1500x webp" }}
-
-{{/* resize the src image to the given sizes */}}
-{{/* We create a a temp scratch because it's not available in this context */}}
-{{ $data := newScratch }}
-{{ $data.Set "tiny" ($src.Resize $tinyw) }}
-{{ $data.Set "small" ($src.Resize $smallw) }}
-{{ $data.Set "medium" ($src.Resize $mediumw) }}
-{{ $data.Set "large" ($src.Resize $largew) }}
-
-{{/* add the processed images to the scratch */}}
-
-{{ $tiny := $data.Get "tiny" }}
-{{ $small := $data.Get "small" }}
-{{ $medium := $data.Get "medium" }}
-{{ $large := $data.Get "large" }}
-
-{{/* only use images smaller than or equal to the src (original) 
-image size, as Hugo will upscale small images */}}
-
-
-<picture>
-    
-    <source media="(max-width: 376px)" 
-        srcset="{{with $tiny.RelPermalink }}{{.}}{{ end }}">
-
-    <source media="(max-width: 992px)" 
-        srcset="{{with $small.RelPermalink }}{{.}}{{ end }}">
-
-    <source media="(max-width: 1400px)" 
-        srcset="{{with $medium.RelPermalink }}{{.}}{{ end }}">
-
-    <source media="(min-width: 1600px)" 
-        srcset="{{with $large.RelPermalink }}{{.}}{{ end }}">
-    
-    <img 
- 
-   alt="{{ $alt }}" title="{{ $alt }}" src="{{ $src.RelPermalink }}" 
-   height="{{ $src.Height}}" width="{{ $src.Width }}" class="img-fluid">
-
-</picture>
-  
-  {{/* Since I do image-response class, the only thing that really 
-  matters is the height and width matches the image aspect ratio */}}
-
-  {{ end }}
-
+{{ $sets := slice }}
+{{ if in (slice "jpeg" "png" "webp") $src.MediaType.SubType }}
+{{ range slice 400 640 960 1280 1600 }}{{ if le . $src.Width }}{{ $variant := $src.Resize (printf "%dx webp" .) }}{{ $sets = $sets | append (printf "%s %dw" $variant.RelPermalink $variant.Width) }}{{ end }}{{ end }}
+{{ end }}
+<img src="{{ $src.RelPermalink }}"{{ with $sets }} srcset="{{ delimit . ", " | safeHTMLAttr }}" sizes="(max-width: 800px) calc(100vw - 40px), 760px"{{ end }} alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} width="{{ $src.Width }}" height="{{ $src.Height }}" loading="lazy" decoding="async">
+{{ else }}<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">{{ end }}

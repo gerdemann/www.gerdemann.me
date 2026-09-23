@@ -1,0 +1,73 @@
+{{- $personID := printf "%s#person" .Site.BaseURL -}}
+{{- $websiteID := printf "%s#website" .Site.BaseURL -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" "Michael Gerdemann"
+  "url" .Site.BaseURL
+  "jobTitle" "CTO und Anwendungsentwickler"
+  "sameAs" (slice "https://de.linkedin.com/in/michael-gerdemann" "https://github.com/gerdemann")
+  "worksFor" (slice
+    (dict "@type" "Organization" "name" "VARIOS AI" "url" "https://varios-ai.com/")
+    (dict "@type" "Organization" "name" "avency" "url" "https://www.avency.de/"))
+  "knowsAbout" (slice "Anwendungsentwicklung" "PHP" "JavaScript" "React" "Flutter" "Dart" "Docker" "Generative KI" "AI Governance")
+-}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $websiteID
+  "url" .Site.BaseURL
+  "name" .Site.Title
+  "description" .Site.Params.siteDesc
+  "inLanguage" "de-DE"
+  "publisher" (dict "@id" $personID)
+-}}
+{{- $graph := slice $website -}}
+{{- if .IsHome -}}
+  {{- $graph = append (dict "@type" "ProfilePage" "@id" .Permalink "url" .Permalink "name" "Michael Gerdemann" "isPartOf" (dict "@id" $websiteID) "mainEntity" (dict "@id" $personID)) $graph -}}
+  {{- $graph = append $person $graph -}}
+{{- else if eq .Section "posts" -}}
+  {{- $language := .Params.articleLanguage | default "en" -}}
+  {{- $image := partial "social-image.html" . -}}
+  {{- $article := dict
+    "@type" "BlogPosting"
+    "@id" .Permalink
+    "url" .Permalink
+    "headline" .Title
+    "description" (.Description | default (.Summary | plainify) | htmlUnescape | truncate 170)
+    "image" $image
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "inLanguage" $language
+    "author" (dict "@id" $personID)
+    "publisher" (dict "@id" $personID)
+    "isPartOf" (dict "@id" $websiteID)
+    "mainEntityOfPage" .Permalink
+  -}}
+  {{- $breadcrumbs := dict
+    "@type" "BreadcrumbList"
+    "@id" (printf "%s#breadcrumb" .Permalink)
+    "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "Startseite" "item" .Site.BaseURL)
+      (dict "@type" "ListItem" "position" 2 "name" "Blog" "item" ("blog.html" | absURL))
+      (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink))
+  -}}
+  {{- $graph = append $article $graph -}}
+  {{- $graph = append $breadcrumbs $graph -}}
+  {{- $graph = append $person $graph -}}
+{{- else -}}
+  {{- $webpageType := "WebPage" -}}
+  {{- if eq .RelPermalink "/about.html" }}{{ $webpageType = "ProfilePage" }}{{ end -}}
+  {{- $webpage := dict "@type" $webpageType "@id" .Permalink "url" .Permalink "name" .Title "description" (.Description | default .Site.Params.siteDesc) "isPartOf" (dict "@id" $websiteID) -}}
+  {{- if eq $webpageType "ProfilePage" }}{{ $webpage = merge $webpage (dict "mainEntity" (dict "@id" $personID)) }}{{ end -}}
+  {{- $breadcrumbs := dict
+    "@type" "BreadcrumbList"
+    "@id" (printf "%s#breadcrumb" .Permalink)
+    "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "Startseite" "item" .Site.BaseURL)
+      (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink))
+  -}}
+  {{- $graph = append $webpage $graph -}}
+  {{- $graph = append $breadcrumbs $graph -}}
+  {{- if eq $webpageType "ProfilePage" }}{{ $graph = append $person $graph }}{{ end -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>

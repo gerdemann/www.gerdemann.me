@@ -1,4 +1,5 @@
 ---
+articleLanguage: de
 title: Unser neues Aquarium
 date: '2023-06-15'
 tags: ['aquarium', 'aquaristik', 'fische', 'pflanzen']

@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Advent of Code
 date: '2021-12-07'
 tags: ['advent of code', 'christmas', 'code']

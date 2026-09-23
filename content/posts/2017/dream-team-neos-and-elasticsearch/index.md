@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'Dream team: Neos and Elasticsearch'
 date: '2017-07-24'
 tags: ['neos', 'flow', 'php', 'elastcisearch']

@@ -1,57 +1,21 @@
 {{ define "main" }}
-
-{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-{{ $projects := where .Site.RegularPages "Section" "projects" }}
-{{ $pages = .Paginate ($pages)  }}
-{{ $archivesPage := first 1 (where .Site.RegularPages "Layout" "eq" "archives") }}
-
-<div class="container">
-    <section>
-        <div class="posts">
-            {{ range $pages.Pages }}
-            <div class="post">
-                <a href="{{ .RelPermalink }}">
-                    <div class="post-row">
-                        <time>{{ .Date.Format "2006, Jan 02" }}</time>
-                        <div>
-                            <h3>{{ .Title }}</h3>
-                            <p>{{ .Summary }}</p>
-                        </div>
-                    </div>
-                </a>
-                <div class=""></div>
-            </div>
-            {{ end }}
-            {{ range $archivesPage }}
-            <nav class="flex container suggested">
-                <a href="{{ .RelPermalink }}">
-                    Show all posts
-                </a>
-            </nav>
-            {{ end }}
-        </div>
-    </section>
-    {{ if gt (len $projects) 0}}
-    <section>
-        <h2>Projects</h2>
-        <div class="projects">
-            {{ range $projects.ByWeight }}
-            <div class="project">
-                <div>
-                    <a href="{{ .Params.link }}" target="_blank" rel="noreferrer">
-                        <div class="icon">{{ .Params.icon }}</div>
-                        <h3>{{ .Title }}</h3>
-                    </a>
-                    <div class="description">{{ .Params.description }}</div>
-                </div>
-                <div class="flex">
-                    <a href="{{ .Params.repo }}" class="button" target="_blank" rel="noreferrer">Source</a>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </section>
-    {{ end }}
+<div class="shell">
+<section class="hero" aria-labelledby="intro-title">
+<div class="hero-copy"><p class="eyebrow"><span class="small-line"></span> MICHAEL GERDEMANN · CTO & ANWENDUNGSENTWICKLUNG</p>
+<h1 id="intro-title">Aus Neugier.<br>Mit Code.<br><span class="accent">Für Menschen.</span></h1>
+<p class="hero-description">Ich bin Michael, CTO bei VARIOS AI und in der Anwendungsentwicklung bei avency tätig. Ich verbinde Produktentwicklung mit dem praktischen Einsatz von KI.</p>
+<div class="hero-actions"><a class="button" href="#projekte">Meine Projekte <span aria-hidden="true">↘</span></a><a class="text-link" href="{{ "/about.html" | relURL }}">Mehr über mich <span aria-hidden="true">→</span></a></div>
 </div>
-
+<aside class="hero-aside" aria-label="Was mich antreibt"><div class="code-mark" aria-hidden="true">{{ partial "brand-mark.html" . }}</div><p class="aside-label">ZWISCHEN IDEE UND ALLTAG</p><p>Technik verstehen.<br>Dinge selber machen.<br>Wissen weitergeben.</p><div class="aside-bottom"><span aria-hidden="true">↳</span> KI · Software · Open Source</div></aside>
+</section>
+<section class="expertise" aria-label="Technische Schwerpunkte"><p class="eyebrow">WOMIT ICH ARBEITE</p><div><h2>Anwendungsentwicklung</h2><p>PHP · JavaScript · React</p></div><div><h2>Mobile Apps</h2><p>Flutter · Dart</p></div><div><h2>KI-Plattformen</h2><p>LLMs · AI Governance</p></div></section>
+<section id="projekte" class="section projects-section" aria-labelledby="projects-title"><div class="section-heading"><div><p class="eyebrow">01 / AUSGEWÄHLTE PROJEKTE</p><h2 id="projects-title">Ideen entwickeln.<br>Wirkung entfalten.</h2></div><p>Beruflich im Team, privat aus Neugier. Von KI im Unternehmen bis zur eigenen Rezept-App.</p></div>
+<div class="project-grid">{{ range hugo.Data.projects.projects }}<article class="project">
+<div class="project-visual {{ .visual }}" aria-hidden="true">{{ if eq .visual "recipes" }}<div class="recipe-sheet"><span class="recipe-overline">GERDELICIOUS</span><div class="recipe-symbol">g<span>.</span></div><span class="recipe-bottom">Gute Rezepte.<br>Immer dabei.</span><span class="recipe-seal">MIT LIEBE<br>GEMACHT</span></div>{{ else }}<div class="varios-panel"><div class="varios-brand"><span class="varios-icon">V</span><strong>VARIOS AI</strong><small>AI-GOVERNANCE</small></div><p class="varios-claim">Wir sichern ab.<br><strong>Sie gehen voran.</strong></p><div class="varios-values"><span>MODULAR</span><span>SICHER</span><span>TRANSPARENT</span></div><span class="varios-watermark">V</span></div>{{ end }}</div>
+<div class="project-body"><p class="eyebrow">{{ .category }}</p><h3>{{ .name }}</h3><p>{{ .description }}</p><p class="contribution">{{ .contribution }}</p><a class="text-link" href="{{ .url }}">{{ .label }} <span aria-hidden="true">↗</span></a></div>
+</article>{{ end }}</div></section>
+<section class="section blog-section" aria-labelledby="blog-title"><div class="section-heading"><div><p class="eyebrow">02 / NOTIZEN & GEDANKEN</p><h2 id="blog-title">Aus meinem Blog.</h2></div><a class="text-link" href="{{ "/blog.html" | relURL }}">Alle Beiträge <span aria-hidden="true">→</span></a></div>
+<div class="post-list">{{ range first 3 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}{{ partial "post-row.html" . }}{{ end }}</div></section>
+<section id="kontakt" class="contact section" aria-labelledby="contact-title"><div><p class="eyebrow">03 / IN VERBINDUNG BLEIBEN</p><h2 id="contact-title">Gute Ideen beginnen<br>mit einem Hallo.</h2><p>Ein gemeinsames Thema, eine Frage oder einfach Lust auf Austausch? Ich freue mich auf deine Nachricht.</p></div><div class="contact-links"><a href="mailto:hello@gerdemann.me">hello@gerdemann.me <span aria-hidden="true">↗</span></a><a href="https://github.com/gerdemann">GitHub <span aria-hidden="true">↗</span></a><a href="https://de.linkedin.com/in/michael-gerdemann">LinkedIn <span aria-hidden="true">↗</span></a></div></section>
+</div>
 {{ end }}

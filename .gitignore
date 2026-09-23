@@ -5,3 +5,7 @@
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Local preview process state
+/.preview.pid
+/.preview.port

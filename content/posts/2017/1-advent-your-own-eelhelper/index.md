@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: '1. Advent: Your own EelHelper'
 date: '2017-12-03'
 tags: ['neos', 'flow', 'php', 'eel']

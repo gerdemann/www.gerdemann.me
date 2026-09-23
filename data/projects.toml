@@ -1,0 +1,17 @@
+[[projects]]
+name = "VARIOS AI"
+category = "KI-PLATTFORM · BERUFLICH"
+description = "KI im Unternehmen nutzbar machen – mit Kontrolle über Modelle, Daten und Zugriffe. Bei VARIOS AI bin ich als CTO Teil des Teams hinter der Plattform."
+contribution = "Meine Rolle: Chief Technology Officer"
+url = "https://varios-ai.com/"
+label = "VARIOS AI entdecken"
+visual = "ai"
+
+[[projects]]
+name = "Gerdelicious"
+category = "APP · EIGENES PROJEKT"
+description = "Meine Rezept-App für Brot, Kuchen und Torten. Mit Schritt-für-Schritt-Anleitungen, Back- und Ruhezeiten und einem praktischen Hefe-Rechner."
+contribution = "Konzeption und Entwicklung"
+url = "https://apps.apple.com/de/app/gerdelicious/id1547135961"
+label = "Im App Store ansehen"
+visual = "recipes"

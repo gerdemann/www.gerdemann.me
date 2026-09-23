@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Mastodon - the better social network
 date: '2018-09-23'
 tags: ['mastodon', 'social media', 'twitter']

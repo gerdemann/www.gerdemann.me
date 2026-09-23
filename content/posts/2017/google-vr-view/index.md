@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'Google VR View'
 date: '2017-01-23'
 tags: ['VR', 'google']

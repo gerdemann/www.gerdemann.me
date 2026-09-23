@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: '2. Advent: A custom validator'
 date: '2017-12-10'
 tags: ['neos', 'flow', 'php']

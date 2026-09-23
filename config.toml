@@ -1,60 +1,28 @@
 baseURL = 'https://www.gerdemann.me/'
-languageCode = 'en-db'
 title = 'Michael Gerdemann'
-theme = "hugo-tania"
-uglyurls = true
+locale = 'de-DE'
+defaultContentLanguage = 'de'
+uglyURLs = true
 timeZone = 'Europe/Berlin'
-
 enableRobotsTXT = true
-disableKinds = ['categories']
 
 [params]
-  mainSections = ['posts']
-  author = "Michael Gerdemann"
-  siteName = "Michael Gerdemann"
-  siteDesc = "The blog of Michael Gerdemann - Flow & Neos enthusiast. Many things about programming and other technical topics."
+  author = 'Michael Gerdemann'
+  siteDesc = 'Michael Gerdemann – CTO bei VARIOS AI und Anwendungsentwickler. KI-Plattformen, Apps und Open Source.'
+  localPreview = false
 
-[params.colorScheme]
-  default = "light"
-
-
-[menu]
-[[menu.header]]
-  name = "Blog"
-  url = "/blog.html"
-  weight = 100
-[[menu.header]]
-  name = "About"
-  url = "/about.html"
-  weight = 200
-[[menu.header]]
-  name = "Legal / Privacy notice"
-  url = "/legal.html"
-  weight = 300
-
-[[menu.footer]]
-  name = "RSS"
-  url = "/feed.xml"
-  weight = 100
-[[menu.footer]]
-  name = "@michael@wohnzimmer.social"
-  url = "https://wohnzimmer.social/@michael"
-  weight = 200
-    
-
-[outputFormats]
 [outputFormats.RSS]
-  mediatype = "application/rss"
-  baseName = "feed"
+  mediaType = 'application/rss+xml'
+  baseName = 'feed'
 
 [outputs]
-  page = ["HTML"]
-  posts = ["HTML"]
-  section = ["HTML"]
-  taxonomyTerm = ["HTML"]
-  taxonomy = ["HTML"]
+  home = ['HTML', 'RSS']
+  page = ['HTML']
+  section = ['HTML']
+  taxonomy = ['HTML']
+  term = ['HTML', 'RSS']
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.highlight]
+  noClasses = false

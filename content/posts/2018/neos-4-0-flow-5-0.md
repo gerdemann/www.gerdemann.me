@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Neos 4.0 & Flow 5.0
 date: '2018-05-06'
 tags: ['neos', 'flow', 'php']

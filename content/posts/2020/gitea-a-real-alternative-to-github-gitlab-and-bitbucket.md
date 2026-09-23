@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Gitea - a real alternative to Github, Gitlab and BitBucket
 date: '2020-01-25'
 tags: ['git', 'gitea', 'github', 'code']

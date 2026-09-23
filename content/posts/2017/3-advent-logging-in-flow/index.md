@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: '3. Advent: Logging in Flow'
 date: '2017-12-17'
 tags: ['neos', 'flow', 'php', 'logging']

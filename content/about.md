@@ -1,26 +1,26 @@
 ---
-title: About
-layout: page
+title: Über mich
+author: Michael Gerdemann
+layout: about
+description: CTO bei VARIOS AI. Anwendungsentwicklung bei avency. Eigene Apps und technische Gedanken.
 ---
 
-👋 Hi, i am Michael Gerdemann. I am a Lead Software Engineer at [avency](https://www.avency.de).
-I have experience in the development of websites, web applications and apps based on PHP and Flutter/Dart, among others.
-I run my own Mastodon instances [wohnzimmer.social](https://wohnzimmer.social),  [dizl.de](https://dizl.de) and  [bvb.social](https://bvb.social) and have programmed the app [Gerdelicious](https://apps.apple.com/bw/app/gerdelicious/id1547135961) with a few of my recipes.
-Every now and then I publish a post on my blog [gerdemann.me](https://gerdemann.me).
+Ich bin Michael Gerdemann. Als **CTO bei [VARIOS AI](https://varios-ai.com/unternehmen/)** und in der **Anwendungsentwicklung bei [avency](https://www.avency.de/)** beschäftige ich mich mit Produktentwicklung und dem Einsatz von KI in Unternehmen.
 
-## About Me
+## Software und Verantwortung {#about-me}
 
-* 💻 I'm currently working on: What you need for a home server
-* 🔭 I’m currently learning: The secrets of Kubernetes
-* 🤔 What I want to learn next: How do I integrate more tests into my projects
-* 📫 How to reach me: hello@${myLastname}.me
-* 😄 Pronouns: he/his
-* 🥖 Fun fact: I love baking bread and cakes
+Mich interessiert, wie aus einer technischen Möglichkeit ein brauchbares Produkt wird. Bei VARIOS AI geht es um den Einsatz generativer KI mit Kontrolle über Modelle, Daten und Zugriffe. Als CTO bin ich Teil des Teams hinter der Plattform.
 
-## Tools I work with
+In der Anwendungsentwicklung arbeite ich unter anderem mit PHP, JavaScript und React. Meine Erfahrung mit Neos, Flow, Docker und Elasticsearch ergänzt diesen Schwerpunkt. Mit Flutter und Dart entwickle ich außerdem mobile Apps. Ich möchte Technik verstehen, eigene Ideen ausprobieren und Erfahrungen weitergeben.
 
-* My preferred IDE is PhpStorm
-* I work on a MacBook
-* I use Brave as my browser most of the time
-* I love composer for my PHP applications
-* For hosting my applications I use Docker
+## Eigene Projekte {#tools-i-work-with}
+
+Mit [Gerdelicious](https://apps.apple.com/de/app/gerdelicious/id1547135961) habe ich meine Freude am Backen in eine Rezept-App gebracht. Sie enthält Anleitungen für Brot, Kuchen und Torten, Back- und Ruhezeiten sowie einen Hefe-Rechner.
+
+## Abseits des Editors
+
+Ich backe gerne Brot und Kuchen. Auch die Aquaristik hat bei uns in der Familie ihren Platz – darüber erzähle ich im Beitrag [Unser neues Aquarium](/posts/2023/unser-neues-aquarium.html).
+
+## Lass uns austauschen
+
+Du erreichst mich per [E-Mail](mailto:hello@gerdemann.me), auf [LinkedIn](https://de.linkedin.com/in/michael-gerdemann) und auf [GitHub](https://github.com/gerdemann). In [meinem Blog](/blog.html) schreibe ich über technische Entdeckungen und eigene Erfahrungen.

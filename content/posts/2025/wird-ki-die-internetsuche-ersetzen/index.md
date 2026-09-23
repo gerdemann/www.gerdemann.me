@@ -1,4 +1,5 @@
 ---
+articleLanguage: de
 title: Wird KI die Internetsuche ersetzen? Ein Blick auf Effizienz und Nachhaltigkeit.
 date: '2025-07-29'
 tags: ['ki', 'chatgpt', 'google', 'nachhaltigkeit']

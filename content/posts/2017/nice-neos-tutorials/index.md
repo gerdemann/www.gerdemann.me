@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'Nice Neos Tutorials'
 date: '2017-08-11'
 tags: ['neos', 'flow', 'php', 'tutorials']

@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: git rerere – Do not always resolve the same conflicts
 date: '2019-01-23'
 tags: ['git', 'code']

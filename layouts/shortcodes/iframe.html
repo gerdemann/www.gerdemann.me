@@ -1,17 +1,1 @@
-<div class="cookieconsent-optin-marketing fluid-media">
-  <iframe
-    data-cookieblock-src={{ .Get "src" }}
-    data-cookieconsent="marketing"
-    frameBorder="0"
-    allowFullScreen
-    width="100%"
-  ></iframe>
-</div>
-<div class="cookieconsent-optout-marketing fluid-media">
-  <button
-    class="flex items-center justify-center"
-    onClick="Cookiebot.renew();"
-  >
-    Please accept marketing cookies to watch this video.
-  </button>
-</div>
+<div class="external-media"><p>Dieses Video wird extern auf YouTube bereitgestellt.</p><a class="text-link" href="{{ .Get "src" | safeURL }}">Video auf YouTube ansehen ↗</a></div>

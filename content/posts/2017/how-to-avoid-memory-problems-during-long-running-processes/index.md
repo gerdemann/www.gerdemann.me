@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'How to avoid memory problems during long-running processes?'
 date: '2017-02-13'
 tags: ['neos', 'flow', 'php']

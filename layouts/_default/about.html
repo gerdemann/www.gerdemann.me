@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div class="shell about-page">
+  <header class="about-hero">
+    <div class="about-intro">
+      <p class="eyebrow"><span class="small-line"></span> ÜBER MICH / PROFIL</p>
+      <h1>Technik wird gut, wenn sie Menschen wirklich <span class="accent">weiterhilft.</span></h1>
+      <p class="about-lead">Ich bin Michael Gerdemann. Ich entwickle Anwendungen, gestalte Produkte und beschäftige mich damit, wie KI im Unternehmensalltag sinnvoll eingesetzt werden kann.</p>
+      <div class="hero-actions">
+        <a class="button" href="#about-me">Was ich mache <span aria-hidden="true">↘</span></a>
+        <a class="text-link" href="https://de.linkedin.com/in/michael-gerdemann">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <aside class="about-role" aria-label="Aktuelle Rollen">
+      <div class="about-sign" aria-hidden="true">mg<span>.</span></div>
+      <p class="eyebrow">AKTUELL</p>
+      <div class="role-entry"><span>CTO</span><strong>VARIOS AI</strong><a href="https://varios-ai.com/unternehmen/" aria-label="VARIOS AI besuchen">↗</a></div>
+      <div class="role-entry"><span>Anwendungsentwicklung</span><strong>avency</strong><a href="https://www.avency.de/" aria-label="avency besuchen">↗</a></div>
+    </aside>
+  </header>
+
+  <section class="about-work" id="about-me" aria-labelledby="work-title">
+    <div class="about-section-label"><p class="eyebrow">01 / ARBEIT</p><span aria-hidden="true">↳</span></div>
+    <div class="about-section-copy">
+      <h2 id="work-title">Zwischen technischer Möglichkeit und brauchbarem Produkt.</h2>
+      <div class="about-columns">
+        <p>Bei <a href="https://varios-ai.com/">VARIOS AI</a> geht es um den Einsatz generativer KI mit Kontrolle über Modelle, Daten und Zugriffe. Als CTO bin ich Teil des Teams hinter der Plattform.</p>
+        <p>In der Anwendungsentwicklung verbinde ich Architektur, Umsetzung und Betrieb. Ich möchte Technik verstehen, eigene Ideen ausprobieren und Erfahrungen weitergeben.</p>
+      </div>
+      <div class="skill-lines" aria-label="Technische Schwerpunkte">
+        <div><span>Anwendungen</span><p>PHP · JavaScript · React</p></div>
+        <div><span>Mobile Apps</span><p>Flutter · Dart</p></div>
+        <div><span>Plattform & Betrieb</span><p>Neos · Flow · Docker · Elasticsearch</p></div>
+        <div><span>KI</span><p>LLMs · AI Governance</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-projects" id="tools-i-work-with" aria-labelledby="own-projects-title">
+    <div class="about-section-label"><p class="eyebrow">02 / EIGENE PROJEKTE</p><span aria-hidden="true">↳</span></div>
+    <div class="about-section-copy">
+      <h2 id="own-projects-title">Neugier wird am besten konkret.</h2>
+      <div class="about-project-grid">
+        <article class="about-project-featured">
+          <div class="about-project-mark" aria-hidden="true">g<span>.</span></div>
+          <p class="eyebrow">APP · REZEPTE</p>
+          <h3>Gerdelicious</h3>
+          <p>Meine Rezept-App für Brot, Kuchen und Torten – mit Schritt-für-Schritt-Anleitungen, Back- und Ruhezeiten und einem praktischen Hefe-Rechner.</p>
+          <a class="text-link" href="https://apps.apple.com/de/app/gerdelicious/id1547135961">Im App Store ansehen <span aria-hidden="true">↗</span></a>
+        </article>
+        <div class="open-source-list">
+          <p class="eyebrow">MEHR ENTDECKEN</p>
+          <a href="{{ "/blog.html" | relURL }}"><span><strong>Technische Gedanken</strong><small>Erfahrungen und Entdeckungen aus der Praxis</small></span><b aria-hidden="true">→</b></a>
+          <a href="https://github.com/gerdemann"><span><strong>GitHub-Profil</strong><small>Aktuelle Aktivität und öffentlicher Quellcode</small></span><b aria-hidden="true">↗</b></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-personal" id="abseits-des-editors" aria-labelledby="personal-title">
+    <p class="eyebrow">03 / ABSEITS DES EDITORS</p>
+    <div class="personal-statement">
+      <span class="personal-symbol" aria-hidden="true">⌁</span>
+      <h2 id="personal-title">Brot backen. Kuchen probieren. Aquarien beobachten.</h2>
+      <p>Gute Projekte brauchen Pausen und andere Perspektiven. Über unser Aquarium habe ich sogar <a href="{{ "/posts/2023/unser-neues-aquarium.html" | relURL }}">einen Blogbeitrag geschrieben&nbsp;↗</a></p>
+    </div>
+  </section>
+
+  <section class="about-contact" id="lass-uns-austauschen" aria-labelledby="about-contact-title">
+    <div><p class="eyebrow">04 / AUSTAUSCH</p><h2 id="about-contact-title">Lass uns über Technik und gute Ideen sprechen.</h2></div>
+    <div class="about-contact-links">
+      <a href="mailto:hello@gerdemann.me">hello@gerdemann.me <span aria-hidden="true">↗</span></a>
+      <a href="https://de.linkedin.com/in/michael-gerdemann">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/gerdemann">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="{{ "/blog.html" | relURL }}">Zum Blog <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</div>
+{{ end }}

@@ -1,6 +1,6 @@
 ---
-title: An error has occurred
+title: Ein Fehler ist aufgetreten
 layout: page
 ---
 
-We apologise for the inconvenience. An error has occurred. Please try again later.
+Bitte versuche es später noch einmal. Über die [Startseite](/) findest du zurück zu den Projekten und dem Blog.

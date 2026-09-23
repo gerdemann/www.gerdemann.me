@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Composer patches
 date: '2020-02-16'
 tags: ['php', 'composer']

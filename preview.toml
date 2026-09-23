@@ -1,0 +1,279 @@
+# Only used by scripts/preview.sh, never by the deployment workflow.
+[params]
+  localPreview = true
+
+# Historic pagination now resolves to complete archives.
+[[server.redirects]]
+from = "/categories/page/1.html"
+to = "/categories.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/page/1.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/page/2.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/page/3.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/posts/page/1.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/posts/page/2.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/posts/page/3.html"
+to = "/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/about/page/1.html"
+to = "/tags/about.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/advent-of-code/page/1.html"
+to = "/tags/advent-of-code.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/ai/page/1.html"
+to = "/tags/ai.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/aquaristik/page/1.html"
+to = "/tags/aquaristik.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/aquarium/page/1.html"
+to = "/tags/aquarium.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/blog/page/1.html"
+to = "/tags/blog.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/chatgpt/page/1.html"
+to = "/tags/chatgpt.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/christmas/page/1.html"
+to = "/tags/christmas.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/code/page/1.html"
+to = "/tags/code.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/composer/page/1.html"
+to = "/tags/composer.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/eel/page/1.html"
+to = "/tags/eel.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/elastcisearch/page/1.html"
+to = "/tags/elastcisearch.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/fische/page/1.html"
+to = "/tags/fische.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/flow/page/1.html"
+to = "/tags/flow.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/flow/page/2.html"
+to = "/tags/flow.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/git/page/1.html"
+to = "/tags/git.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/gitea/page/1.html"
+to = "/tags/gitea.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/github/page/1.html"
+to = "/tags/github.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/google/page/1.html"
+to = "/tags/google.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/ki/page/1.html"
+to = "/tags/ki.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/logging/page/1.html"
+to = "/tags/logging.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/mastodon/page/1.html"
+to = "/tags/mastodon.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/nachhaltigkeit/page/1.html"
+to = "/tags/nachhaltigkeit.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/neos/page/1.html"
+to = "/tags/neos.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/neos/page/2.html"
+to = "/tags/neos.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/page/1.html"
+to = "/tags.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/page/2.html"
+to = "/tags.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/page/3.html"
+to = "/tags.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/page/4.html"
+to = "/tags.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/passwords/page/1.html"
+to = "/tags/passwords.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/pflanzen/page/1.html"
+to = "/tags/pflanzen.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/php/page/1.html"
+to = "/tags/php.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/php/page/2.html"
+to = "/tags/php.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/programming/page/1.html"
+to = "/tags/programming.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/social-media/page/1.html"
+to = "/tags/social-media.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/tutorials/page/1.html"
+to = "/tags/tutorials.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/twitter/page/1.html"
+to = "/tags/twitter.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/tags/vr/page/1.html"
+to = "/tags/vr.html"
+status = 301
+force = true
+
+[[server.redirects]]
+from = "/**"
+to = "/404.html"
+status = 404

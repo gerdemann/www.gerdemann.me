@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: 'echo "Hello world";'
 date: '2017-01-22'
 tags: ['blog', 'about']

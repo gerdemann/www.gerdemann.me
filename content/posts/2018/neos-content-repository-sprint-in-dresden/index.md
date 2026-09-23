@@ -1,4 +1,5 @@
 ---
+articleLanguage: en
 title: Neos "Content Repository" Sprint in Dresden
 date: '2018-03-03'
 tags: ['neos', 'flow', 'php']

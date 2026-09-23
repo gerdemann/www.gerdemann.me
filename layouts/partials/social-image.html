@@ -1,0 +1,8 @@
+{{- $image := "social-preview.png" | absURL -}}
+{{- with .Params.socialImage -}}
+  {{- $image = . | absURL -}}
+{{- else -}}
+  {{- with .Resources.GetMatch "*.png" }}{{ $image = .Permalink }}{{ end -}}
+  {{- with .Resources.GetMatch "*.jpg" }}{{ $image = .Permalink }}{{ end -}}
+{{- end -}}
+{{- return $image -}}
